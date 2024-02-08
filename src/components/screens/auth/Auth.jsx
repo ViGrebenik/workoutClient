@@ -7,41 +7,38 @@ import Input from '../../ui/input/Input'
 import styles from './Auth.module.scss'
 import { useAuthPage } from './useAuthPage'
 
-const isLoadingAuth = true
-
 const Auth = () => {
-	const { setType, register, handleSubmit, errors, isLoading, onSubmit } =
+	const { errors, handleSubmit, isLoading, onSubmit, register, setType } =
 		useAuthPage()
 
 	return (
 		<>
-			<Layout
-				heading='Sign in'
-				bgImage='../../../../public/images/auth-bg.jpg'
-			/>
+			<Layout heading='Sign in' bgImage='/images/auth-bg.png' />
 			<div className='wrapper-inner-page'>
-				{(isLoading || isLoadingAuth) && <Loader />}
+				{isLoading && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Input
 						error={errors?.email?.message}
 						name='email'
 						register={register}
 						options={{
-							required: 'Email is require'
+							required: 'Email is required'
 						}}
 						type='text'
-						placeholder='email'
+						placeholder='Enter email'
 					/>
+
 					<Input
 						error={errors?.password?.message}
 						name='password'
 						register={register}
 						options={{
-							required: 'Password is require'
+							required: 'Password is required'
 						}}
 						type='password'
-						placeholder='password'
+						placeholder='Enter password'
 					/>
+
 					<div className={styles.wrapperButtons}>
 						<Button clickHandler={() => setType('login')}>Sign in</Button>
 						<Button clickHandler={() => setType('register')}>Sign up</Button>

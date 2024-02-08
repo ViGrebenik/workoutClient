@@ -9,8 +9,6 @@ import Menu from './Menu'
 export const Hamburger = () => {
 	const { ref, isShow, setIsShow } = useOnClickOutside(false)
 
-	// const logoutHandler = () => {}
-
 	return (
 		<div className={styles.wrapper} ref={ref}>
 			<button onClick={() => setIsShow(!isShow)}>

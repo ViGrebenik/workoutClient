@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import './assets/styles/index.scss'
-import AuthProvider from './provider/AuthProvide'
+import AuthProvider from './providers/AuthProvider'
 import Router from './routes/Routes'
 
 const queryClient = new QueryClient({

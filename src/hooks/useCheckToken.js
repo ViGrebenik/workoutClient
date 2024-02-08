@@ -1,10 +1,12 @@
 import Cookies from 'js-cookie'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+
 import { TOKEN } from '../app.constants'
+
 import { useAuth } from './useAuth'
 
-export const useCheckAuth = () => {
+export const useCheckToken = () => {
 	const { setIsAuth, isAuth } = useAuth()
 	const { pathname } = useLocation()
 

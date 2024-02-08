@@ -1,11 +1,12 @@
 import cn from 'clsx'
 import Header from './header/header'
 
+import { useCheckToken } from '../../hooks/useCheckToken'
 import styles from './Layout.module.scss'
-import { useCheckAuth } from '../../hooks/useCheckAuth'
 
 const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
-	useCheckAuth()
+	useCheckToken()
+
 	return (
 		<section
 			className={cn(styles.wrapper, {
@@ -15,11 +16,7 @@ const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
 		>
 			<Header backLink={backLink} />
 
-			{heading && (
-				<h1 className={styles.heading} style={{ color: 'white' }}>
-					{heading}
-				</h1>
-			)}
+			{heading && <h1 className={styles.heading}>{heading}</h1>}
 
 			{children && <div>{children}</div>}
 		</section>
